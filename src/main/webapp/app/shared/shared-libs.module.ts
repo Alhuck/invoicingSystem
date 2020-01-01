@@ -6,8 +6,7 @@ import { NgJhipsterModule } from 'ng-jhipster';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { TranslateModule } from '@ngx-translate/core';
-import { MatSliderModule } from '@angular/material';
-import { MatButtonModule } from '@angular/material/button';
+import { MatSliderModule, MatButtonModule, MatSidenavModule, MatToolbarModule, MatListModule, MatIconModule } from '@angular/material';
 
 @NgModule({
   exports: [
@@ -20,7 +19,11 @@ import { MatButtonModule } from '@angular/material/button';
     ReactiveFormsModule,
     TranslateModule,
     MatSliderModule,
-    MatButtonModule
+    MatButtonModule,
+    MatSidenavModule,
+    MatToolbarModule,
+    MatListModule,
+    MatIconModule
   ]
 })
 export class InvoiceSystemSharedLibsModule {}
