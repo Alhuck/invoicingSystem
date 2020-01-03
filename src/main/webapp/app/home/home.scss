@@ -1,0 +1,14 @@
+@import '../../content/scss/my-theme.scss';
+
+.content-cls {
+  height: 88vh;
+  margin-left: 1%;
+}
+
+.sidenav-cls {
+  background-color: $app-primary;
+}
+
+a.menu-class.mat-list-item {
+  color: white !important;
+}
