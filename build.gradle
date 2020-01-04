@@ -227,6 +227,12 @@ dependencies {
     testImplementation "de.flapdoodle.embed:de.flapdoodle.embed.mongo"
     testImplementation "org.hamcrest:hamcrest-library"
     //jhipster-needle-gradle-dependency - JHipster will add additional dependencies here
+    
+    // graphql depedencies
+	compile group: 'com.graphql-java', name: 'graphql-java-tools', version: '5.2.4'
+    compile group: 'com.graphql-java', name: 'graphql-spring-boot-starter', version: '5.0.2'
+
+    
 }
 
 if (project.hasProperty("gae")) {
