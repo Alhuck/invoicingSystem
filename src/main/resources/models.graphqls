@@ -3,8 +3,8 @@ schema {
 }
 
 type Query {
-	getAllusers: [User]
-	getUser(id : String) : User
+	users: [User]
+	user(id : String) : User
 }
 
 type User {
