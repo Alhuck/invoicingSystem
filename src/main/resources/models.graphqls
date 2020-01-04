@@ -1,0 +1,25 @@
+schema {
+	query: Query
+}
+
+type Query {
+	getAllusers: [User]
+	getUser(id : String) : User
+}
+
+type User {
+	id: String
+	firstName: String
+	lastName: String
+	login: String
+	email: String
+	langKey: String
+	imageUrl: String
+	activationKey: String
+	resetKey: String
+	authorities: [Authority]
+}
+
+type Authority {
+	id: String
+}
