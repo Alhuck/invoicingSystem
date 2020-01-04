@@ -36,6 +36,7 @@ sourceCompatibility=1.8
 targetCompatibility=1.8
 assert System.properties["java.specification.version"] == "1.8" || "11" || "12" || "13"
 
+apply plugin: "eclipse"
 apply from: "gradle/docker.gradle"
 apply from: "gradle/sonar.gradle"
 //jhipster-needle-gradle-apply-from - JHipster will add additional gradle scripts to be applied here
@@ -229,8 +230,10 @@ dependencies {
     //jhipster-needle-gradle-dependency - JHipster will add additional dependencies here
     
     // graphql depedencies
-	compile group: 'com.graphql-java', name: 'graphql-java-tools', version: '5.2.4'
-    compile group: 'com.graphql-java', name: 'graphql-spring-boot-starter', version: '5.0.2'
+	implementation "com.graphql-java:graphql-java-tools:5.2.4"
+    implementation "com.graphql-java:graphql-spring-boot-starter:5.0.2"
+    implementation "com.graphql-java:graphiql-spring-boot-starter:5.0.2"
+    
 
     
 }
