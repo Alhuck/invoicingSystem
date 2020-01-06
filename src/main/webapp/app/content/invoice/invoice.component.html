@@ -1,1 +1,35 @@
-<h1>Invoice component!!</h1>
+<div class="invoice-main-layout-cls">
+    <mat-grid-list cols="1" rowHeight="82px">
+        <mat-grid-tile rowspan="1">
+            <div class="invoice-layout-cls">
+                Invoice buttons
+            </div>
+        </mat-grid-tile>
+        <mat-grid-tile rowspan="2">
+            <div class="invoice-layout-cls">
+                <mat-grid-list cols="2">
+                    <mat-grid-tile rowspan="1">
+                        <div class="invoice-layout-cls">
+                            Customer details
+                        </div>
+                    </mat-grid-tile>
+                    <mat-grid-tile rowspan="1">
+                        <div class="invoice-layout-cls">
+                            Company details
+                        </div>
+                    </mat-grid-tile>
+                </mat-grid-list>
+            </div>
+        </mat-grid-tile>
+        <mat-grid-tile rowspan="4">
+            <div class="invoice-layout-cls">
+                Product details
+            </div>
+        </mat-grid-tile>
+        <mat-grid-tile rowspan="3">
+            <div class="invoice-layout-cls">
+                Total Amount details
+            </div>
+        </mat-grid-tile>
+    </mat-grid-list>
+</div>

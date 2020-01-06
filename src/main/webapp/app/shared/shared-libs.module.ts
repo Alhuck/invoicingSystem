@@ -6,7 +6,15 @@ import { NgJhipsterModule } from 'ng-jhipster';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { TranslateModule } from '@ngx-translate/core';
-import { MatSliderModule, MatButtonModule, MatSidenavModule, MatToolbarModule, MatListModule, MatIconModule } from '@angular/material';
+import {
+  MatSliderModule,
+  MatButtonModule,
+  MatSidenavModule,
+  MatToolbarModule,
+  MatListModule,
+  MatIconModule,
+  MatGridListModule
+} from '@angular/material';
 
 @NgModule({
   exports: [
@@ -23,7 +31,8 @@ import { MatSliderModule, MatButtonModule, MatSidenavModule, MatToolbarModule, M
     MatSidenavModule,
     MatToolbarModule,
     MatListModule,
-    MatIconModule
+    MatIconModule,
+    MatGridListModule
   ]
 })
 export class InvoiceSystemSharedLibsModule {}
