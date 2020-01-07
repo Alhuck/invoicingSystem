@@ -1,35 +1,82 @@
 <div class="invoice-main-layout-cls">
-    <mat-grid-list cols="1" rowHeight="82px">
-        <mat-grid-tile rowspan="1">
-            <div class="invoice-layout-cls">
-                Invoice buttons
-            </div>
-        </mat-grid-tile>
-        <mat-grid-tile rowspan="2">
-            <div class="invoice-layout-cls">
-                <mat-grid-list cols="2">
-                    <mat-grid-tile rowspan="1">
-                        <div class="invoice-layout-cls">
-                            Customer details
-                        </div>
-                    </mat-grid-tile>
-                    <mat-grid-tile rowspan="1">
-                        <div class="invoice-layout-cls">
-                            Company details
-                        </div>
-                    </mat-grid-tile>
-                </mat-grid-list>
-            </div>
-        </mat-grid-tile>
-        <mat-grid-tile rowspan="4">
-            <div class="invoice-layout-cls">
-                Product details
-            </div>
-        </mat-grid-tile>
-        <mat-grid-tile rowspan="3">
-            <div class="invoice-layout-cls">
-                Total Amount details
-            </div>
-        </mat-grid-tile>
-    </mat-grid-list>
+    <h1>New Invoice</h1>
+    <mat-card>
+        <mat-grid-list cols="1" rowHeight="75px">
+            <mat-grid-tile rowspan="4">
+                <div class="invoice-layout-cls">
+                    <mat-grid-list cols="2">
+                        <mat-grid-tile rowspan="2">
+                            <div class="invoice-layout-cls">
+                                <div class="company-container-cls">
+                                    <h6>Company details</h6>
+                                    <form [formGroup]="options">
+                                        <div>
+                                            <mat-form-field class="company-details-cls" [floatLabel]="options.value.floatLabel">
+                                                <mat-label>First Name</mat-label>
+                                                <input class="company-details-cls" matInput>
+                                            </mat-form-field>
+                                            <mat-form-field class="company-details-cls" [floatLabel]="options.value.floatLabel">
+                                                <mat-label>Last Name</mat-label>
+                                                <input matInput>
+                                            </mat-form-field>
+                                        </div>
+                                        <div>
+                                            <mat-form-field class="cmp-adrnam-cls" [floatLabel]="options.value.floatLabel">
+                                                <mat-label>Company name</mat-label>
+                                                <input matInput>
+                                            </mat-form-field>
+                                        </div>
+                                        <div>
+                                            <mat-form-field class="cmp-adrnam-cls"
+                                                [floatLabel]="options.value.floatLabel">
+                                                <mat-label>Company address</mat-label>
+                                                <input matInput>
+                                            </mat-form-field>
+                                        </div>
+                                        <div>
+                                            <mat-form-field class="company-details-cls"
+                                                [floatLabel]="options.value.floatLabel">
+                                                <mat-label>City</mat-label>
+                                                <input matInput>
+                                            </mat-form-field>
+                                            <mat-form-field class="company-details-cls"
+                                                   [floatLabel]="options.value.floatLabel">
+                                                   <mat-label>Province</mat-label>
+                                                   <input matInput>
+                                           </mat-form-field>
+                                        </div>
+                                        <mat-form-field class="company-details-cls"
+                                            [floatLabel]="options.value.floatLabel">
+                                            <mat-label>ZIP code</mat-label>
+                                            <input matInput>
+                                        </mat-form-field>
+                                        <mat-form-field class="company-details-cls"
+                                                [floatLabel]="options.value.floatLabel">
+                                                <mat-label>Country</mat-label>
+                                                <input matInput>
+                                        </mat-form-field>
+                                    </form>
+                                </div>
+                            </div>
+                        </mat-grid-tile>
+                        <mat-grid-tile rowspan="2">
+                            <div class="invoice-layout-cls">
+                                Customer details
+                            </div>
+                        </mat-grid-tile>
+                    </mat-grid-list>
+                </div>
+            </mat-grid-tile>
+            <mat-grid-tile rowspan="4">
+                <div class="invoice-layout-cls">
+                    Product details
+                </div>
+            </mat-grid-tile>
+            <mat-grid-tile rowspan="3">
+                <div class="invoice-layout-cls">
+                    Total Amount details
+                </div>
+            </mat-grid-tile>
+        </mat-grid-list>
+    </mat-card>
 </div>

@@ -1,9 +1,25 @@
 .invoice-layout-cls {
-  border: 1px solid red;
+  // border: 1px solid red;
   min-width: 100%;
   height: 100% !important;
 }
 .invoice-main-layout-cls {
   margin: 0 10% 0 10%;
   height: 88vh !important;
+}
+
+.company-container-cls {
+  display: flex;
+  flex-flow: column;
+  width: 100%;
+}
+
+mat-form-field.company-details-cls.mat-form-field.mat-primary.mat-form-field-type-mat-input.mat-form-field-appearance-legacy.mat-form-field-can-float.mat-form-field-has-label {
+  font-size: 10px;
+  width: 10%;
+}
+
+mat-form-field.cmp-adrnam-cls.mat-form-field.mat-primary.mat-form-field-type-mat-input.mat-form-field-appearance-legacy.mat-form-field-can-float.mat-form-field-has-label {
+  font-size: 10px;
+  width: 20%;
 }
