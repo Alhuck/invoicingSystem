@@ -2,34 +2,30 @@
     <h1>New Invoice</h1>
     <mat-card>
         <mat-grid-list cols="1" rowHeight="75px">
-            <mat-grid-tile rowspan="4">
+            <mat-grid-tile rowspan="3">
                 <div class="invoice-layout-cls">
                     <mat-grid-list cols="2">
                         <mat-grid-tile rowspan="2">
                             <div class="invoice-layout-cls">
                                 <div class="company-container-cls">
-                                    <h6>Company details</h6>
+                                    <h6>Your details</h6>
                                     <form [formGroup]="options">
                                         <div>
-                                            <mat-form-field class="company-details-cls" [floatLabel]="options.value.floatLabel">
-                                                <mat-label>First Name</mat-label>
+                                            <mat-form-field class="cmp-adrnam-cls" [floatLabel]="options.value.floatLabel">
+                                                <mat-label>Your Name</mat-label>
                                                 <input class="company-details-cls" matInput>
-                                            </mat-form-field>
-                                            <mat-form-field class="company-details-cls" [floatLabel]="options.value.floatLabel">
-                                                <mat-label>Last Name</mat-label>
-                                                <input matInput>
                                             </mat-form-field>
                                         </div>
                                         <div>
                                             <mat-form-field class="cmp-adrnam-cls" [floatLabel]="options.value.floatLabel">
-                                                <mat-label>Company name</mat-label>
+                                                <mat-label> Your Company name</mat-label>
                                                 <input matInput>
                                             </mat-form-field>
                                         </div>
                                         <div>
                                             <mat-form-field class="cmp-adrnam-cls"
                                                 [floatLabel]="options.value.floatLabel">
-                                                <mat-label>Company address</mat-label>
+                                                <mat-label>Street</mat-label>
                                                 <input matInput>
                                             </mat-form-field>
                                         </div>
@@ -61,16 +57,98 @@
                         </mat-grid-tile>
                         <mat-grid-tile rowspan="2">
                             <div class="invoice-layout-cls">
-                                Customer details
+                                <div class="company-container-cls">
+                                    <h6>Invoice to</h6>
+                                    <form [formGroup]="options">
+                                        <div>
+                                            <mat-form-field class="company-details-cls" [floatLabel]="options.value.floatLabel">
+                                                <mat-label>First Name</mat-label>
+                                                <input class="company-details-cls" matInput>
+                                            </mat-form-field>
+                                            <mat-form-field class="company-details-cls" [floatLabel]="options.value.floatLabel">
+                                                <mat-label>Last Name</mat-label>
+                                                <input matInput>
+                                            </mat-form-field>
+                                        </div>
+                                        <div>
+                                            <mat-form-field class="cmp-adrnam-cls" [floatLabel]="options.value.floatLabel">
+                                                <mat-label>Company name</mat-label>
+                                                <input matInput>
+                                            </mat-form-field>
+                                        </div>
+                                        <div>
+                                            <mat-form-field class="cmp-adrnam-cls" [floatLabel]="options.value.floatLabel">
+                                                <mat-label>Company address</mat-label>
+                                                <input matInput>
+                                            </mat-form-field>
+                                        </div>
+                                        <div>
+                                            <mat-form-field class="company-details-cls" [floatLabel]="options.value.floatLabel">
+                                                <mat-label>City</mat-label>
+                                                <input matInput>
+                                            </mat-form-field>
+                                            <mat-form-field class="company-details-cls" [floatLabel]="options.value.floatLabel">
+                                                <mat-label>Province</mat-label>
+                                                <input matInput>
+                                            </mat-form-field>
+                                        </div>
+                                        <mat-form-field class="company-details-cls" [floatLabel]="options.value.floatLabel">
+                                            <mat-label>ZIP code</mat-label>
+                                            <input matInput>
+                                        </mat-form-field>
+                                        <mat-form-field class="company-details-cls" [floatLabel]="options.value.floatLabel">
+                                            <mat-label>Country</mat-label>
+                                            <input matInput>
+                                        </mat-form-field>
+                                    </form>
+                                </div>
                             </div>
                         </mat-grid-tile>
                     </mat-grid-list>
                 </div>
             </mat-grid-tile>
+            <mat-grid-tile rowspan="1">
+                <mat-divider class="divd-cls"></mat-divider>
+            </mat-grid-tile>
             <mat-grid-tile rowspan="4">
                 <div class="invoice-layout-cls">
                     Product details
+                    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+                        <ng-container matColumnDef="sno">
+                            <th mat-header-cell *matHeaderCellDef> No. </th>
+                            <td mat-cell *matCellDef="let element"> {{element.sno}} </td>
+                        </ng-container>
+
+                        <!-- Name Column -->
+                        <ng-container matColumnDef="productName">
+                            <th mat-header-cell *matHeaderCellDef> Product Name </th>
+                            <td mat-cell *matCellDef="let element"> {{element.productName}}</td>
+                        </ng-container>
+
+                        <!-- Weight Column -->
+                        <ng-container matColumnDef="quantity">
+                            <th mat-header-cell *matHeaderCellDef> Quantity </th>
+                            <td mat-cell *matCellDef="let element"> {{element.quantity}}</td>
+                        </ng-container>
+
+                        <!-- Symbol Column -->
+                        <ng-container matColumnDef="price">
+                            <th mat-header-cell *matHeaderCellDef> Unit Price </th>
+                            <td mat-cell *matCellDef="let element"> {{element.price}} </td>
+                        </ng-container>
+                        <ng-container matColumnDef="rowTotal">
+                            <th mat-header-cell *matHeaderCellDef> Total </th>
+                            <td mat-cell *matCellDef="let element"> {{element.rowTotal}} </td>
+                        </ng-container>
+
+                        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                    </table>
                 </div>
+            </mat-grid-tile>
+            <mat-grid-tile rowspan="1">
+                <mat-divider class="divd-cls"></mat-divider>
             </mat-grid-tile>
             <mat-grid-tile rowspan="3">
                 <div class="invoice-layout-cls">

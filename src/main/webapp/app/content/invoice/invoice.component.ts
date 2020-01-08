@@ -8,6 +8,8 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 })
 export class InvoiceComponent implements OnInit, OnDestroy {
   options: FormGroup;
+  displayedColumns: string[] = ['sno', 'productName', 'quantity', 'price', 'rowTotal'];
+  dataSource = [{ sno: 1, productName: 'ipad', quantity: 1, price: 3000, rowTotal: 3000 }];
 
   constructor(fb: FormBuilder) {
     this.options = fb.group({

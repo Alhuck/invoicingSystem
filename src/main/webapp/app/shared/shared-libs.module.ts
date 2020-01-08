@@ -15,7 +15,9 @@ import {
   MatIconModule,
   MatGridListModule,
   MatCardModule,
-  MatInputModule
+  MatInputModule,
+  MatDividerModule,
+  MatTableModule
 } from '@angular/material';
 
 @NgModule({
@@ -36,7 +38,9 @@ import {
     MatIconModule,
     MatGridListModule,
     MatCardModule,
-    MatInputModule
+    MatInputModule,
+    MatDividerModule,
+    MatTableModule
   ]
 })
 export class InvoiceSystemSharedLibsModule {}
