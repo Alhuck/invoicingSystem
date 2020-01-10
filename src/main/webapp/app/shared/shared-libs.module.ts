@@ -17,7 +17,8 @@ import {
   MatCardModule,
   MatInputModule,
   MatDividerModule,
-  MatTableModule
+  MatTableModule,
+  MatCheckboxModule
 } from '@angular/material';
 
 @NgModule({
@@ -40,7 +41,8 @@ import {
     MatCardModule,
     MatInputModule,
     MatDividerModule,
-    MatTableModule
+    MatTableModule,
+    MatCheckboxModule
   ]
 })
 export class InvoiceSystemSharedLibsModule {}
