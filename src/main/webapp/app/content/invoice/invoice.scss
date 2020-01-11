@@ -40,3 +40,16 @@ table {
   top: 2%;
   right: 26%;
 }
+
+.product-table-cls {
+  overflow-y: auto;
+  height: 82%;
+  width: 100%;
+}
+
+.total-calc-cls {
+  margin-right: 19%;
+  font-style: italic;
+  font-weight: bold;
+  text-align: right;
+}

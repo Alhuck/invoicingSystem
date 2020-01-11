@@ -46,7 +46,7 @@ export class InvoiceComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {}
 
   addProductItems(): any {
-    const dummyObj = { sno: 1, productName: 'ipad', quantity: 1, price: 3000, rowTotal: 3000 };
+    const dummyObj = { sno: 1, productName: 'ipad', quantity: 1, price: '3,000.00', rowTotal: '3,000.00' };
     const temp = this.dataSource.data.slice();
     temp.push(dummyObj);
     this.dataSource.data = temp;
