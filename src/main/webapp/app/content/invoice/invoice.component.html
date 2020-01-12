@@ -2,6 +2,7 @@
     <div>
         <h1>New Invoice</h1>
         <div class="invoice-button-cls">
+            <button mat-raised-button color="accent">Print</button>
             <button mat-raised-button color="accent">Save</button>
             <button mat-raised-button color="accent">Cancel</button>
         </div>
@@ -120,7 +121,7 @@
                 <div class="invoice-layout-cls">
                     <div>
                         <span>Product details</span>
-                        <button style="float: right; margin-bottom: 1%;" mat-raised-button color="accent" (click)="addProductItems()">Add Product Items</button>
+                        <button style="float: right; margin-bottom: 1%;" mat-raised-button color="accent" (click)="openDialog('Add', {})">Add Product Items</button>
                     </div>
                     <div class="product-table-cls">
                         <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
@@ -164,6 +165,19 @@
                             <ng-container matColumnDef="rowTotal">
                                 <th mat-header-cell *matHeaderCellDef> Total </th>
                                 <td mat-cell *matCellDef="let element"> {{element.rowTotal}} </td>
+                            </ng-container>
+
+                            <!-- Action Column -->
+                            <ng-container matColumnDef="actions">
+                                <th mat-header-cell *matHeaderCellDef> Action </th>
+                                <td mat-cell *matCellDef="let element">
+                                    <a (click)="openDialog('Update', element)">
+                                        <i class="material-icons">edit</i>
+                                    </a> 
+                                    <a (click)="openDialog('Delete', element)">
+                                        <i class="material-icons">delete</i>
+                                    </a>
+                                </td>
                             </ng-container>
     
                             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
