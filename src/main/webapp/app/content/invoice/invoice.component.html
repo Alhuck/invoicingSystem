@@ -16,47 +16,47 @@
                             <div class="invoice-layout-cls">
                                 <div class="company-container-cls">
                                     <h6>Your details</h6>
-                                    <form [formGroup]="options">
+                                    <form [formGroup]="userDetails">
                                         <div>
-                                            <mat-form-field class="cmp-adrnam-cls" [floatLabel]="options.value.floatLabel">
+                                            <mat-form-field class="cmp-adrnam-cls" [floatLabel]="auto">
                                                 <mat-label>Your Name</mat-label>
-                                                <input class="company-details-cls" matInput>
+                                                <input class="company-details-cls" matInput formControlName="name">
                                             </mat-form-field>
                                         </div>
                                         <div>
-                                            <mat-form-field class="cmp-adrnam-cls" [floatLabel]="options.value.floatLabel">
+                                            <mat-form-field class="cmp-adrnam-cls" [floatLabel]="auto">
                                                 <mat-label> Your Company name</mat-label>
-                                                <input matInput>
+                                                <input matInput formControlName="companyName">
                                             </mat-form-field>
                                         </div>
                                         <div>
                                             <mat-form-field class="cmp-adrnam-cls"
-                                                [floatLabel]="options.value.floatLabel">
+                                                [floatLabel]="auto">
                                                 <mat-label>Street</mat-label>
-                                                <input matInput>
+                                                <input matInput formControlName="street">
                                             </mat-form-field>
                                         </div>
                                         <div>
                                             <mat-form-field class="company-details-cls"
-                                                [floatLabel]="options.value.floatLabel">
+                                                [floatLabel]="auto">
                                                 <mat-label>City</mat-label>
-                                                <input matInput>
+                                                <input matInput formControlName="city">
                                             </mat-form-field>
                                             <mat-form-field class="company-details-cls"
-                                                   [floatLabel]="options.value.floatLabel">
+                                                   [floatLabel]="auto">
                                                    <mat-label>Province</mat-label>
-                                                   <input matInput>
+                                                   <input matInput formControlName="province">
                                            </mat-form-field>
                                         </div>
                                         <mat-form-field class="company-details-cls"
-                                            [floatLabel]="options.value.floatLabel">
+                                            [floatLabel]="auto">
                                             <mat-label>ZIP code</mat-label>
-                                            <input matInput>
+                                            <input matInput formControlName="zipcode">
                                         </mat-form-field>
                                         <mat-form-field class="company-details-cls"
-                                                [floatLabel]="options.value.floatLabel">
+                                                [floatLabel]="auto">
                                                 <mat-label>Country</mat-label>
-                                                <input matInput>
+                                                <input matInput formControlName="country">
                                         </mat-form-field>
                                     </form>
                                 </div>
@@ -66,46 +66,46 @@
                             <div class="invoice-layout-cls">
                                 <div class="company-container-cls">
                                     <h6>Invoice to</h6>
-                                    <form [formGroup]="options">
+                                    <form [formGroup]="customerDetails">
                                         <div>
-                                            <mat-form-field class="company-details-cls" [floatLabel]="options.value.floatLabel">
+                                            <mat-form-field class="company-details-cls" [floatLabel]="auto">
                                                 <mat-label>First Name</mat-label>
-                                                <input class="company-details-cls" matInput>
+                                                <input class="company-details-cls" matInput formControlName="firstName">
                                             </mat-form-field>
-                                            <mat-form-field class="company-details-cls" [floatLabel]="options.value.floatLabel">
+                                            <mat-form-field class="company-details-cls" [floatLabel]="auto">
                                                 <mat-label>Last Name</mat-label>
-                                                <input matInput>
+                                                <input matInput formControlName="lastName">
                                             </mat-form-field>
                                         </div>
                                         <div>
-                                            <mat-form-field class="cmp-adrnam-cls" [floatLabel]="options.value.floatLabel">
+                                            <mat-form-field class="cmp-adrnam-cls" [floatLabel]="auto">
                                                 <mat-label>Company name</mat-label>
-                                                <input matInput>
+                                                <input matInput formControlName="companyName">
                                             </mat-form-field>
                                         </div>
                                         <div>
-                                            <mat-form-field class="cmp-adrnam-cls" [floatLabel]="options.value.floatLabel">
+                                            <mat-form-field class="cmp-adrnam-cls" [floatLabel]="auto">
                                                 <mat-label>Company address</mat-label>
-                                                <input matInput>
+                                                <input matInput formControlName="street">
                                             </mat-form-field>
                                         </div>
                                         <div>
-                                            <mat-form-field class="company-details-cls" [floatLabel]="options.value.floatLabel">
+                                            <mat-form-field class="company-details-cls" [floatLabel]="auto">
                                                 <mat-label>City</mat-label>
-                                                <input matInput>
+                                                <input matInput formControlName="city">
                                             </mat-form-field>
-                                            <mat-form-field class="company-details-cls" [floatLabel]="options.value.floatLabel">
+                                            <mat-form-field class="company-details-cls" [floatLabel]="auto">
                                                 <mat-label>Province</mat-label>
-                                                <input matInput>
+                                                <input matInput formControlName="province">
                                             </mat-form-field>
                                         </div>
-                                        <mat-form-field class="company-details-cls" [floatLabel]="options.value.floatLabel">
+                                        <mat-form-field class="company-details-cls" [floatLabel]="auto">
                                             <mat-label>ZIP code</mat-label>
-                                            <input matInput>
+                                            <input matInput formControlName="zipcode">
                                         </mat-form-field>
-                                        <mat-form-field class="company-details-cls" [floatLabel]="options.value.floatLabel">
+                                        <mat-form-field class="company-details-cls" [floatLabel]="auto">
                                             <mat-label>Country</mat-label>
-                                            <input matInput>
+                                            <input matInput formControlName="country">
                                         </mat-form-field>
                                     </form>
                                 </div>
@@ -121,7 +121,7 @@
                 <div class="invoice-layout-cls">
                     <div>
                         <span>Product details</span>
-                        <button style="float: right; margin-bottom: 1%;" mat-raised-button color="accent" (click)="openDialog('Add', {})">Add Product Items</button>
+                        <button style="float: right; margin-bottom: 1%;" mat-raised-button color="accent" (click)="openDialog('Add', {productName: '', 'quantity': 1, 'price': '0'})">Add Product Items</button>
                     </div>
                     <div class="product-table-cls">
                         <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
@@ -193,9 +193,9 @@
                 <div class="invoice-layout-cls">
                     <!-- <span>Total Amount details</span> -->
                     <div>
-                        <p class="total-calc-cls">Total Amount : <span> 10,000.00</span></p>
-                        <p class="total-calc-cls">Tax(13.1 % of total amount) : <span>1,130.00</span></p>
-                        <p class="total-calc-cls">Grand Total : <span>11,130.00</span></p>
+                        <p class="total-calc-cls">Total Amount : <span> {{totalAmountWithoutTax | number}}</span></p>
+                        <p class="total-calc-cls">Tax(13.1 % of total amount) : <span>{{totalTax | number}}</span></p>
+                        <p class="total-calc-cls">Grand Total : <span>{{totalAmountWithTax | number}}</span></p>
                     </div>
                 </div>
             </mat-grid-tile>
