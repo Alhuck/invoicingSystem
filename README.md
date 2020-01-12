@@ -1,6 +1,6 @@
-===============
-invoice-system
-===============
+# Invoice System
+
+Open sourced project for creating simple invoices for SMEs
 
 # To-dos on invoice system
 
