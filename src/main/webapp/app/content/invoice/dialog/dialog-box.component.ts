@@ -6,8 +6,8 @@ export interface ProductDetails {
   id: number;
   productName: string;
   quantity: number;
-  price: string;
-  rowTotal: string;
+  price: number;
+  rowTotal: number;
   sno: number;
 }
 
@@ -34,5 +34,10 @@ export class DialogBoxComponent {
 
   closeDialog(): void {
     this.dialogRef.close({ event: 'Cancel' });
+  }
+
+  modelChanged(e: any): void {
+    // eslint-disable-next-line no-console
+    console.log(e);
   }
 }
