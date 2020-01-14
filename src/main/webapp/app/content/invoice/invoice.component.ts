@@ -1,52 +1,9 @@
 import { SelectionModel } from '@angular/cdk/collections';
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialog, MatTableDataSource } from '@angular/material';
 import { DialogBoxComponent, ProductDetails } from 'app/content/invoice/dialog/dialog-box.component';
 import { BehaviorSubject } from 'rxjs';
-
-export interface UserDetails {
-  name: string;
-  companyName: string;
-  street: string;
-  city: string;
-  provice: string;
-  zipcode: string;
-  country: string;
-
-  // constructor() {
-
-  //   this.name = "";
-  //   this.companyName = "";
-  //   this.street = "";
-  //   this.city = "";
-  //   this.provice = "";
-  //   this.zipcode = "";
-  //   this.country = "";
-  // }
-}
-
-export class CustomerDetails {
-  firstName: string;
-  secondName: string;
-  companyName: string;
-  street: string;
-  city: string;
-  provice: string;
-  zipcode: string;
-  country: string;
-
-  constructor() {
-    this.firstName = '';
-    this.secondName = '';
-    this.companyName = '';
-    this.street = '';
-    this.city = '';
-    this.provice = '';
-    this.zipcode = '';
-    this.country = '';
-  }
-}
 
 @Component({
   selector: 'invoice-content',
@@ -54,8 +11,8 @@ export class CustomerDetails {
   styleUrls: ['invoice.scss']
 })
 export class InvoiceComponent implements OnInit, OnDestroy {
-  // userDetails: FormGroup;
-  // customerDetails: FormGroup;
+  userDetails: FormGroup;
+  customerDetails: FormGroup;
   displayedColumns: string[] = ['select', 'sno', 'productName', 'quantity', 'price', 'rowTotal', 'actions'];
   dataSource = new MatTableDataSource<ProductDetails>();
   selection = new SelectionModel<any>(true, []);
@@ -63,36 +20,8 @@ export class InvoiceComponent implements OnInit, OnDestroy {
   totalAmountWithoutTax = 0;
   totalTax = 0;
   totalAmountWithTax = 0;
-  // userDetails = new UserDetails();
-  // customerDetails = new CustomerDetails();
 
-  userDetails = new FormGroup({
-    name: new FormControl({ value: '' }),
-    companyName: new FormControl({ value: '' }),
-    street: new FormControl({ value: '' }),
-    city: new FormControl({ value: '' }),
-    province: new FormControl({ value: '' }),
-    zipcode: new FormControl({ value: '' }),
-    country: new FormControl({ value: '' })
-  });
-
-  customerDetails = new FormGroup({
-    firstName: new FormControl({ value: '' }),
-    lastName: new FormControl({ value: '' }),
-    companyName: new FormControl({ value: '' }),
-    street: new FormControl({ value: '' }),
-    city: new FormControl({ value: '' }),
-    province: new FormControl({ value: '' }),
-    zipcode: new FormControl({ value: '' }),
-    country: new FormControl({ value: '' })
-  });
-  constructor(fb: FormBuilder, public dialog: MatDialog) {
-    // this.userDetails = fb.group({
-    //   floatLabel: 'auto'
-    // });
-
-    // eslint-disable-next-line no-console
-    console.dir(this.userDetails);
+  constructor(private fb: FormBuilder, public dialog: MatDialog) {
     this.dataSourceBS.subscribe(() => {
       this.totalAmountWithoutTax = 0;
       this.totalTax = 0;
@@ -104,6 +33,27 @@ export class InvoiceComponent implements OnInit, OnDestroy {
 
       this.totalTax = (this.totalAmountWithoutTax * 1.13) / 100;
       this.totalAmountWithTax = this.totalAmountWithoutTax + this.totalTax;
+    });
+
+    this.userDetails = this.fb.group({
+      name: [''],
+      companyName: [''],
+      street: [''],
+      city: [''],
+      province: [''],
+      zipcode: [''],
+      country: ['']
+    });
+
+    this.customerDetails = this.fb.group({
+      firstName: [''],
+      lastName: [''],
+      companyName: [''],
+      street: [''],
+      city: [''],
+      province: [''],
+      zipcode: [''],
+      country: ['']
     });
   }
 
@@ -152,7 +102,7 @@ export class InvoiceComponent implements OnInit, OnDestroy {
     const temp = this.dataSource.data.slice();
     rowObj.id = date.getTime();
     rowObj.sno = this.dataSource.data.length + 1;
-    rowObj.rowTotal = (parseInt(rowObj.price, 10) * rowObj.quantity).toString();
+    rowObj.rowTotal = (parseInt(rowObj.price, 10) * rowObj.quantity).toFixed(2);
     temp.push(rowObj);
     this.dataSource.data = temp;
     this.dataSourceBS.next(this.dataSource);
@@ -181,4 +131,6 @@ export class InvoiceComponent implements OnInit, OnDestroy {
     this.dataSource.data = temp;
     this.dataSourceBS.next(this.dataSource);
   }
+
+  saveInvoice(): void {}
 }
