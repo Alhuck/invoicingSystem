@@ -2,14 +2,16 @@
 <h1 mat-dialog-title><strong>{{action}} Product details</strong></h1>
 <div mat-dialog-content>
     <form *ngIf="action != 'Delete'; else elseTemplate">
-        <mat-form-field >
-            <input placeholder="{{action}} Product Name" matInput [(ngModel)]="localData.productName" name="productName">
-        </mat-form-field>
-        <mat-form-field >
-            <input placeholder="{{action}} Price" matInput [(ngModel)]="localData.price" name="price">
+        <mat-form-field>
+            <input placeholder="{{action}} Product Name" matInput [(ngModel)]="localData.productName"
+                name="productName">
         </mat-form-field>
         <mat-form-field>
             <input placeholder="{{action}} Quantity" matInput [(ngModel)]="localData.quantity" name="quantity">
+        </mat-form-field>
+        <mat-form-field>
+            <input placeholder="{{action}} Price" matInput [(ngModel)]="localData.price" name="price"
+                (ngModelChange)="modelChanged($event)">
         </mat-form-field>
     </form>
     <ng-template #elseTemplate>
