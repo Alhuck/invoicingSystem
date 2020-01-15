@@ -21,8 +21,8 @@ export class DialogBoxComponent {
   localData: any;
 
   constructor(public dialogRef: MatDialogRef<DialogBoxComponent>, @Optional() @Inject(MAT_DIALOG_DATA) public data: ProductDetails) {
-    data.quantity = Math.round(data.quantity * 100) / 100;
-    data.price = parseFloat(data.price).toFixed(2);
+    // data.quantity = Math.round(data.quantity * 100) / 100;
+    // data.price = parseFloat(data.price).toFixed(2);
 
     this.localData = { ...data };
     this.action = this.localData.action;

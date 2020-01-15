@@ -7,10 +7,10 @@
                 name="productName">
         </mat-form-field>
         <mat-form-field>
-            <input placeholder="{{action}} Quantity" matInput [(ngModel)]="localData.quantity" name="quantity">
+            <input placeholder="{{action}} Quantity" matInput [(ngModel)]="localData.quantity" name="quantity" [currencyFormatter]>
         </mat-form-field>
         <mat-form-field>
-            <input placeholder="{{action}} Price" matInput [(ngModel)]="localData.price" name="price"
+            <input placeholder="{{action}} Price" matInput [(ngModel)]="localData.price" name="price" [currencyFormatter]
                 (ngModelChange)="modelChanged($event)">
         </mat-form-field>
     </form>
