@@ -102,7 +102,9 @@ export class InvoiceComponent implements OnInit, OnDestroy {
     const temp = this.dataSource.data.slice();
     rowObj.id = date.getTime();
     rowObj.sno = this.dataSource.data.length + 1;
-    rowObj.rowTotal = (parseInt(rowObj.price, 10) * rowObj.quantity).toFixed(2);
+    rowObj.price = parseInt(rowObj.price, 10).toFixed(2);
+    rowObj.quantity = parseInt(rowObj.quantity, 10).toFixed(2);
+    rowObj.rowTotal = (parseInt(rowObj.price, 10) * parseInt(rowObj.quantity, 10)).toFixed(2);
     temp.push(rowObj);
     this.dataSource.data = temp;
     this.dataSourceBS.next(this.dataSource);
@@ -113,9 +115,9 @@ export class InvoiceComponent implements OnInit, OnDestroy {
     temp = temp.filter(value => {
       if (value.id === rowObj.id) {
         value.productName = rowObj.productName;
-        value.price = rowObj.price;
-        value.quantity = rowObj.quantity;
-        value.rowTotal = (parseInt(rowObj.price, 10) * rowObj.quantity).toString();
+        value.price = parseInt(rowObj.price, 10).toFixed(2);
+        value.quantity = parseInt(rowObj.quantity, 10).toFixed(2);
+        value.rowTotal = (parseInt(rowObj.price, 10) * parseInt(rowObj.quantity, 10)).toString();
       }
       return true;
     });

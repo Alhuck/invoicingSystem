@@ -5,9 +5,9 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 export interface ProductDetails {
   id: number;
   productName: string;
-  quantity: number;
-  price: number;
-  rowTotal: number;
+  quantity: string;
+  price: string;
+  rowTotal: string;
   sno: number;
 }
 
