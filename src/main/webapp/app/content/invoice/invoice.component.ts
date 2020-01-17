@@ -5,6 +5,15 @@ import { MatDialog, MatTableDataSource } from '@angular/material';
 import { DialogBoxComponent, ProductDetails } from 'app/content/invoice/dialog/dialog-box.component';
 import { BehaviorSubject } from 'rxjs';
 
+export interface InvoiceDetails {
+  id: number;
+  userDetails: Object;
+  customerDetails: Object;
+  productDetails: Array<ProductDetails>;
+  totalAmount: number;
+  totalTax: number;
+  totalAmountWithTax: number;
+}
 @Component({
   selector: 'invoice-content',
   templateUrl: './invoice.component.html',
@@ -134,5 +143,15 @@ export class InvoiceComponent implements OnInit, OnDestroy {
     this.dataSourceBS.next(this.dataSource);
   }
 
-  saveInvoice(): void {}
+  saveInvoice(): void {
+    const saveInvoiceObj: InvoiceDetails = {} as InvoiceDetails;
+    saveInvoiceObj.customerDetails = this.userDetails.value;
+    saveInvoiceObj.userDetails = this.customerDetails.value;
+    saveInvoiceObj.productDetails = this.dataSource.data;
+    saveInvoiceObj.totalAmount = this.totalAmountWithoutTax;
+    saveInvoiceObj.totalTax = this.totalTax;
+    saveInvoiceObj.totalAmountWithTax = this.totalAmountWithTax;
+    // eslint-disable-next-line no-console
+    console.log(JSON.stringify(saveInvoiceObj));
+  }
 }
