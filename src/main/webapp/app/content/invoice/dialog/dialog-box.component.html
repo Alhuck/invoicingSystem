@@ -10,8 +10,7 @@
             <input placeholder="{{action}} Quantity" matInput [(ngModel)]="localData.quantity" name="quantity" [currencyFormatter]>
         </mat-form-field>
         <mat-form-field>
-            <input placeholder="{{action}} Price" matInput [(ngModel)]="localData.price" name="price" [currencyFormatter]
-                (ngModelChange)="modelChanged($event)">
+            <input placeholder="{{action}} Price" matInput [(ngModel)]="localData.price" name="price" [currencyFormatter]>
         </mat-form-field>
     </form>
     <ng-template #elseTemplate>
