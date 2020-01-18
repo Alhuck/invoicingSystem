@@ -10,8 +10,8 @@ Open sourced project for creating simple invoices for SMEs
       - while initializing the input value and (added workaround)
       - on adding the value to grids (added workaround)
 3.  Need to construct the http request on save invoice routine -- Done
-4.  Need to implement the reset/clear invoice routine -- WIP
-5.  Print the invoice to pdf routine need to be implemented
-6.  GraphQL need to be implemented for the save and fetch routines
+4.  Need to implement the reset/clear invoice routine -- Done
+5.  GraphQL need to be implemented for the save and fetch routines -- WIP
+6.  Print the invoice to pdf routine need to be implemented
 7.  Need to add some basic validations for the invoice form
 8.  Option to add company logo into the invoice design
