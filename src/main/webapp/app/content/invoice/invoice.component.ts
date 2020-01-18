@@ -154,4 +154,11 @@ export class InvoiceComponent implements OnInit, OnDestroy {
     // eslint-disable-next-line no-console
     console.log(JSON.stringify(saveInvoiceObj));
   }
+
+  clearInvoice(): void {
+    this.dataSource.data = [];
+    this.userDetails.reset();
+    this.customerDetails.reset();
+    this.dataSourceBS.next(this.dataSource);
+  }
 }
