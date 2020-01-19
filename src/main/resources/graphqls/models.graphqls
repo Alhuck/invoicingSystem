@@ -1,8 +1,8 @@
 schema {
-	query: Query
+	query: UserQuery
 }
 
-type Query {
+type UserQuery {
 	users: [User]
 	user(id : String) : User
 }
