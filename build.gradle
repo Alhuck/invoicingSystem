@@ -83,6 +83,9 @@ eclipse {
 
 defaultTasks "bootRun"
 
+bootRun {
+  jvmArgs=["-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=8000"]
+}
 springBoot {
     mainClassName = "com.alhuck.invoice.InvoiceSystemApp"
 }
