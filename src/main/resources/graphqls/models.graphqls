@@ -1,5 +1,6 @@
 schema {
 	query: UserQuery
+	mutation: InvoiceMutation
 }
 
 type UserQuery {
@@ -22,4 +23,76 @@ type User {
 
 type Authority {
 	name: String
+}
+
+type InvoiceMutation {
+	createInvoice(invoice : InvoiceInput, userDetails: InvoiceUserDetailsInput, customerDetails: InvoiceCustomerDetailsInput, lineItems: [InvoiceLineItemsInput]): Invoice
+	invoices: [Invoice]
+}
+
+input InvoiceInput {
+	id: String
+	totalAmountWithoutTax: String
+	totalTax: String
+	totalAmountWithTax: String
+}
+
+input InvoiceUserDetailsInput {
+	id: String
+	name: String
+	companyName: String
+}
+
+input InvoiceCustomerDetailsInput {
+	id: String
+	firstName: String
+	lastName: String
+	companyName: String
+}
+
+input InvoiceLineItemsInput {
+	id: String
+	productName: String
+	quantity: String
+	price: String
+	rowTotal: String
+}
+
+type Invoice {
+	id: String
+	userDetails: InvoiceUserDetails
+	customerDetails: InvoiceCustomerDetails
+	invoiceProductDetails: [InvoiceLineItems]
+	totalAmountWithoutTax: String
+	totalTax: String
+	totalAmountWithTax: String
+}
+
+
+type InvoiceCustomerDetails {
+	id: String
+	firstName: String
+	lastName: String
+	companyName: String
+}
+
+type InvoiceUserDetails {
+	id: String
+	name: String
+	companyName: String
+}
+
+type InvoiceCustomerDetails {
+	id: String
+	firstName: String
+	lastName: String
+	companyName: String
+}
+
+type InvoiceLineItems {
+	id: String
+	productName: String
+	quantity: String
+	price: String
+	rowTotal: String
 }
