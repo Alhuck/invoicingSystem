@@ -86,6 +86,7 @@ defaultTasks "bootRun"
 bootRun {
   jvmArgs=["-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=8000"]
 }
+
 springBoot {
     mainClassName = "com.alhuck.invoice.InvoiceSystemApp"
 }
@@ -233,8 +234,8 @@ dependencies {
     //jhipster-needle-gradle-dependency - JHipster will add additional dependencies here
     
     // graphql depedencies
-	implementation "com.graphql-java:graphql-java-tools:5.2.4"
     implementation "com.graphql-java:graphql-spring-boot-starter:5.0.2" 
+	implementation "com.graphql-java:graphql-java-tools:5.2.4"
     implementation "com.graphql-java:graphiql-spring-boot-starter:5.0.2"
     
 

@@ -1,9 +1,9 @@
 package com.alhuck.invoice;
 
-import com.alhuck.invoice.config.ApplicationProperties;
-
-import io.github.jhipster.config.DefaultProfileUtil;
-import io.github.jhipster.config.JHipsterConstants;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+import java.util.Arrays;
+import java.util.Collection;
 
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
@@ -14,10 +14,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.core.env.Environment;
 
-import java.net.InetAddress;
-import java.net.UnknownHostException;
-import java.util.Arrays;
-import java.util.Collection;
+import com.alhuck.invoice.config.ApplicationProperties;
+
+import io.github.jhipster.config.DefaultProfileUtil;
+import io.github.jhipster.config.JHipsterConstants;
+
 
 @SpringBootApplication
 @EnableConfigurationProperties({ApplicationProperties.class})
