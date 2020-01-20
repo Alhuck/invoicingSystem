@@ -12,6 +12,9 @@ Open sourced project for creating simple invoices for SMEs
 3.  Need to construct the http request on save invoice routine -- Done
 4.  Need to implement the reset/clear invoice routine -- Done
 5.  GraphQL need to be implemented for the save and fetch routines -- WIP
+    5.1. configure the graphql server with the backend -- DONE
+    5.2. create mutation routine for invoice -- WIP
+    -created classes and resolver and graphql schema, trying to make a mutation call to graphql backend of mutation resolver -- WIP
 6.  Print the invoice to pdf routine need to be implemented
 7.  Need to add some basic validations for the invoice form
 8.  Option to add company logo into the invoice design
