@@ -6,6 +6,7 @@ import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.stereotype.Component;
 
 import com.alhuck.invoice.domain.Invoice;
@@ -25,8 +26,16 @@ public class InvoiceMutationResolver implements GraphQLMutationResolver {
 
     @Autowired
     private InvoiceRepository invoiceRepository;
+    
+    @Autowired
+    private MongoOperations mongoOperations;
 
     public Invoice createInvoice(Invoice invoice, InvoiceUserDetails userDetails, InvoiceCustomerDetails customerDetails, Set<InvoiceLineItems> lineItems) {
+
+       lineItems =  mongoOperations.save(lineItems);
+       userDetails =  mongoOperations.save(userDetails);
+       customerDetails =  mongoOperations.save(customerDetails);
+        
         invoice.setInvoiceProductDetails(lineItems);
         invoice.setUserDetails(userDetails);
         invoice.setCustomerDetails(customerDetails);

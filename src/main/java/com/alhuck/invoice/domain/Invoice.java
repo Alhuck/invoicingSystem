@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.Set;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Field;
 
 /**
@@ -17,10 +18,11 @@ public class Invoice extends AbstractAuditingEntity implements Serializable {
     @Id
     private String id;
 
+    @DBRef
     private InvoiceUserDetails userDetails;
-
+    @DBRef
     private InvoiceCustomerDetails customerDetails;
-
+    @DBRef
     private Set<InvoiceLineItems> invoiceProductDetails;
     @Field("total_without_tax")
     private String totalAmountWithoutTax;
@@ -28,6 +30,7 @@ public class Invoice extends AbstractAuditingEntity implements Serializable {
     private String totalTax;
     @Field("total_with_tax")
     private String totalAmountWithTax;
+    
 
     public String getId() {
         return id;
