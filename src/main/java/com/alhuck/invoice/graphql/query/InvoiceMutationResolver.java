@@ -26,16 +26,9 @@ public class InvoiceMutationResolver implements GraphQLMutationResolver {
 
     @Autowired
     private InvoiceRepository invoiceRepository;
-    
-    @Autowired
-    private MongoOperations mongoOperations;
 
     public Invoice createInvoice(Invoice invoice, InvoiceUserDetails userDetails, InvoiceCustomerDetails customerDetails, Set<InvoiceLineItems> lineItems) {
 
-       lineItems =  mongoOperations.save(lineItems);
-       userDetails =  mongoOperations.save(userDetails);
-       customerDetails =  mongoOperations.save(customerDetails);
-        
         invoice.setInvoiceProductDetails(lineItems);
         invoice.setUserDetails(userDetails);
         invoice.setCustomerDetails(customerDetails);
