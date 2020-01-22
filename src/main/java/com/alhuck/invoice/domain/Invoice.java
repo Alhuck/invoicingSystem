@@ -7,6 +7,9 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Field;
 
+import com.alhuck.invoice.common.CascadeSave;
+import com.alhuck.invoice.common.CascadeSaveCollection;
+
 /**
  * A user.
  */
@@ -19,10 +22,13 @@ public class Invoice extends AbstractAuditingEntity implements Serializable {
     private String id;
 
     @DBRef
+    @CascadeSave
     private InvoiceUserDetails userDetails;
     @DBRef
+    @CascadeSave
     private InvoiceCustomerDetails customerDetails;
     @DBRef
+    @CascadeSaveCollection
     private Set<InvoiceLineItems> invoiceProductDetails;
     @Field("total_without_tax")
     private String totalAmountWithoutTax;
