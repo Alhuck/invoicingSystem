@@ -18,7 +18,7 @@ Open sourced project for creating simple invoices for SMEs
 
     - created classes and resolver and graphql schema, trying to make a mutation call to graphql backend of mutation resolver -- DONE
       5.3. creating the other entity references inside the invoice entity -- DONE
-    - understand the working of event listeners in cascade save implementation -- WIP
+    - understand the working of event listeners in cascade save implementation -- DONE
       5.4 Integrating the UI data with the backend API -- WIP
       5.5 Cascade delete on child documents while deleting parent document
 
