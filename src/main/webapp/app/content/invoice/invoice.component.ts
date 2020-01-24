@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialog, MatTableDataSource } from '@angular/material';
 import { DialogBoxComponent, ProductDetails } from 'app/content/invoice/dialog/dialog-box.component';
 import { BehaviorSubject } from 'rxjs';
+import { InvoiceService } from 'app/content/invoice/invoice.service';
 
 export interface InvoiceDetails {
   id: number;
@@ -16,6 +17,7 @@ export interface InvoiceDetails {
 }
 @Component({
   selector: 'invoice-content',
+  providers: [InvoiceService],
   templateUrl: './invoice.component.html',
   styleUrls: ['invoice.scss']
 })
@@ -30,7 +32,7 @@ export class InvoiceComponent implements OnInit, OnDestroy {
   totalTax = 0;
   totalAmountWithTax = 0;
 
-  constructor(private fb: FormBuilder, public dialog: MatDialog) {
+  constructor(private fb: FormBuilder, public dialog: MatDialog, public invoiceService: InvoiceService) {
     this.dataSourceBS.subscribe(() => {
       this.totalAmountWithoutTax = 0;
       this.totalTax = 0;
@@ -152,7 +154,7 @@ export class InvoiceComponent implements OnInit, OnDestroy {
     saveInvoiceObj.totalTax = this.totalTax;
     saveInvoiceObj.totalAmountWithTax = this.totalAmountWithTax;
     // eslint-disable-next-line no-console
-    console.log(JSON.stringify(saveInvoiceObj));
+    // console.log(JSON.stringify(saveInvoiceObj));
   }
 
   clearInvoice(): void {
