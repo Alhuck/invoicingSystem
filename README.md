@@ -20,7 +20,8 @@ Open sourced project for creating simple invoices for SMEs
       5.3. creating the other entity references inside the invoice entity -- DONE
     - understand the working of event listeners in cascade save implementation -- DONE
       5.4 Integrating the UI data with the backend API -- WIP
-      5.5 Cascade delete on child documents while deleting parent document
+      - throws exception on request object while making a graphql request -- WIP
+        5.5 Cascade delete on child documents while deleting parent document
 
 6.  Print the invoice to pdf routine need to be implemented
 7.  Need to add some basic validations for the invoice form
