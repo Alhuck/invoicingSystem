@@ -25,6 +25,8 @@
     "@ngx-translate/core": "11.0.1",
     "@ngx-translate/http-loader": "4.0.0",
     "apollo-angular": "^1.8.0",
+    "apollo-angular-link-http": "^1.9.0",
+    "apollo-cache-inmemory": "^1.6.5",
     "apollo-client": "^2.6.8",
     "bootstrap": "4.4.1",
     "core-js": "3.5.0",

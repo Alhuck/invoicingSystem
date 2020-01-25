@@ -15,9 +15,14 @@ import { PageRibbonComponent } from './layouts/profiles/page-ribbon.component';
 import { ActiveMenuDirective } from './layouts/navbar/active-menu.directive';
 import { ErrorComponent } from './layouts/error/error.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ApolloModule, APOLLO_OPTIONS } from 'apollo-angular';
+import { HttpLinkModule, HttpLink } from 'apollo-angular-link-http';
+import { InMemoryCache } from 'apollo-cache-inmemory';
 
 @NgModule({
   imports: [
+    ApolloModule,
+    HttpLinkModule,
     BrowserModule,
     BrowserAnimationsModule,
     InvoiceSystemSharedModule,
@@ -26,6 +31,21 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     // jhipster-needle-angular-add-module JHipster will add new module here
     InvoiceSystemEntityModule,
     InvoiceSystemAppRoutingModule
+  ],
+  providers: [
+    {
+      provide: APOLLO_OPTIONS,
+      // eslint-disable-next-line
+      useFactory: (httpLinkObj: HttpLink) => {
+        return {
+          cache: new InMemoryCache(),
+          link: httpLinkObj.create({
+            uri: 'http://localhost:8080/graphql'
+          })
+        };
+      },
+      deps: [HttpLink]
+    }
   ],
   declarations: [MainComponent, NavbarComponent, ErrorComponent, PageRibbonComponent, ActiveMenuDirective, FooterComponent],
   bootstrap: [MainComponent]
