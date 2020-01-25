@@ -17,7 +17,7 @@ export interface InvoiceDetails {
 }
 @Component({
   selector: 'invoice-content',
-  providers: [InvoiceService],
+  // providers: [InvoiceService],
   templateUrl: './invoice.component.html',
   styleUrls: ['invoice.scss']
 })
@@ -32,7 +32,7 @@ export class InvoiceComponent implements OnInit, OnDestroy {
   totalTax = 0;
   totalAmountWithTax = 0;
 
-  constructor(private fb: FormBuilder, public dialog: MatDialog, public invoiceService: InvoiceService) {
+  constructor(private fb: FormBuilder, public dialog: MatDialog, private invoiceService: InvoiceService) {
     this.dataSourceBS.subscribe(() => {
       this.totalAmountWithoutTax = 0;
       this.totalTax = 0;
@@ -155,6 +155,7 @@ export class InvoiceComponent implements OnInit, OnDestroy {
     saveInvoiceObj.totalAmountWithTax = this.totalAmountWithTax;
     // eslint-disable-next-line no-console
     // console.log(JSON.stringify(saveInvoiceObj));
+    this.invoiceService.createInvoice(saveInvoiceObj);
   }
 
   clearInvoice(): void {
