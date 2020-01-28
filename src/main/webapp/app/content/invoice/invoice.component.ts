@@ -147,15 +147,34 @@ export class InvoiceComponent implements OnInit, OnDestroy {
 
   saveInvoice(): void {
     const saveInvoiceObj: InvoiceDetails = {} as InvoiceDetails;
-    saveInvoiceObj.customerDetails = this.userDetails.value;
-    saveInvoiceObj.userDetails = this.customerDetails.value;
+    saveInvoiceObj.customerDetails = this.customerDetails.value;
+    saveInvoiceObj.userDetails = this.userDetails.value;
     saveInvoiceObj.productDetails = this.dataSource.data;
     saveInvoiceObj.totalAmount = this.totalAmountWithoutTax;
     saveInvoiceObj.totalTax = this.totalTax;
     saveInvoiceObj.totalAmountWithTax = this.totalAmountWithTax;
     // eslint-disable-next-line no-console
     // console.log(JSON.stringify(saveInvoiceObj));
-    this.invoiceService.createInvoice(saveInvoiceObj);
+    // this.invoiceService.createInvoice(saveInvoiceObj);
+    this.invoiceService
+      .mutate({
+        invoice: {
+          totalAmountWithoutTax: this.totalAmountWithoutTax.toFixed(2),
+          totalTax: this.totalTax.toFixed(2),
+          totalAmountWithTax: this.totalAmountWithTax.toFixed(2)
+        },
+        userDetails: { name: this.userDetails.value.name, companyName: this.userDetails.value.companyName },
+        customerDetails: {
+          firstName: this.customerDetails.value.firstName,
+          lastName: this.customerDetails.value.lastName,
+          companyName: this.customerDetails.value.companyName
+        },
+        lineItems: [] // saveInvoiceObj.productDetails
+      })
+      .subscribe(res => {
+        // eslint-disable-next-line no-console
+        console.log(res);
+      });
   }
 
   clearInvoice(): void {
