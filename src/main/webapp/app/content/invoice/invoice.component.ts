@@ -116,6 +116,9 @@ export class InvoiceComponent implements OnInit, OnDestroy {
     rowObj.price = parseInt(rowObj.price, 10).toFixed(2);
     rowObj.quantity = parseInt(rowObj.quantity, 10).toFixed(2);
     rowObj.rowTotal = (parseInt(rowObj.price, 10) * parseInt(rowObj.quantity, 10)).toFixed(2);
+    // if (Object.prototype.hasOwnProperty.call(rowObj, "action")) {
+    delete rowObj['action'];
+    // };
     temp.push(rowObj);
     this.dataSource.data = temp;
     this.dataSourceBS.next(this.dataSource);
@@ -123,12 +126,15 @@ export class InvoiceComponent implements OnInit, OnDestroy {
 
   updateRowData(rowObj: ProductDetails): void {
     let temp = this.dataSource.data.slice();
+    // if (Object.prototype.hasOwnProperty.call(rowObj, "action")) {
+    // };
     temp = temp.filter(value => {
       if (value.id === rowObj.id) {
         value.productName = rowObj.productName;
         value.price = parseInt(rowObj.price, 10).toFixed(2);
         value.quantity = parseInt(rowObj.quantity, 10).toFixed(2);
         value.rowTotal = (parseInt(rowObj.price, 10) * parseInt(rowObj.quantity, 10)).toString();
+        delete value['action'];
       }
       return true;
     });
@@ -149,7 +155,12 @@ export class InvoiceComponent implements OnInit, OnDestroy {
     const saveInvoiceObj: InvoiceDetails = {} as InvoiceDetails;
     saveInvoiceObj.customerDetails = this.customerDetails.value;
     saveInvoiceObj.userDetails = this.userDetails.value;
-    saveInvoiceObj.productDetails = this.dataSource.data;
+    const temp = this.dataSource.data.slice();
+    temp.forEach((v: any) => {
+      delete v.sno;
+    });
+    saveInvoiceObj.productDetails = temp;
+
     saveInvoiceObj.totalAmount = this.totalAmountWithoutTax;
     saveInvoiceObj.totalTax = this.totalTax;
     saveInvoiceObj.totalAmountWithTax = this.totalAmountWithTax;
@@ -169,7 +180,7 @@ export class InvoiceComponent implements OnInit, OnDestroy {
           lastName: this.customerDetails.value.lastName,
           companyName: this.customerDetails.value.companyName
         },
-        lineItems: [] // saveInvoiceObj.productDetails
+        lineItems: saveInvoiceObj.productDetails
       })
       .subscribe(res => {
         // eslint-disable-next-line no-console
